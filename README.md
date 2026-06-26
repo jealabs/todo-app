@@ -1,0 +1,1 @@
+# A Simple Todo List App using Vanilla JS + LocalStorge
