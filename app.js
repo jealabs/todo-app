@@ -22,19 +22,21 @@ function render() {
   });
 
   filtered.forEach((todo) => {
-    let li = document.createElement("li");
-    li.textContent = todo.text;
-    todoList.appendChild(li);
+    todoList.classList = 'flex flex-col gap-4'
 
+    let li = document.createElement("li");
+    todoList.appendChild(li);
+    li.classList = 'flex border rounded-lg p-4 items-center gap-4'
+    
     let checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = todo.completed;
+    checkbox.classList = 'w-4 h-4'
     li.appendChild(checkbox);
-    if (todo.completed === true) {
-      li.style.textDecoration = "line-through";
-    } else {
-      li.style.textDecoration = "none";
-    }
+
+    let p = document.createElement('p')
+    p.textContent = todo.text
+    li.appendChild(p)
 
     checkbox.addEventListener("change", () => {
       todo.completed = !todo.completed;
@@ -42,9 +44,16 @@ function render() {
       localStorage.setItem("todos", JSON.stringify(todos));
     });
 
+    if (todo.completed === true) {
+      p.classList = 'line-through text-gray-600'
+    } else {
+      p.classList = 'no-underline'
+    }
+
     let delBtn = document.createElement("button");
     delBtn.textContent = "Delete";
     li.appendChild(delBtn);
+    delBtn.classList = 'ml-auto hover:text-red-700 cursor-pointer'
 
     delBtn.addEventListener("click", () => {
       todos = todos.filter((t) => t.id !== todo.id);
