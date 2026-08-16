@@ -11,4 +11,4 @@ I created this to-do list project as part of my learning journey.
 
 ### Status: Work in progress — part of learning roadmap
 
-url('![demo todo-list](image.png)')
+<img src="image.png" alt="Demo Todo List" width="800">
